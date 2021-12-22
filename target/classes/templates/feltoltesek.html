@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="hu">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sipos Tea</title>
+	<link rel="stylesheet" th:href="@{../css/style.css}" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header>
+			<a href="index.html" class="logo">Sipos Tea</a>
+		
+			<nav>
+				<a href="feltoltesek.html">Feltöltések</a>
+				<a href="megrendelesek.html">Megrendelések</a>
+			</nav>
+			
+			<div class="login">
+				<a href="index.html">Kilépés</a>
+			</div>
+		</header>
+	
+		<section class="container-padding">
+				<div>
+					<h4>Feltöltések</h4>
+					<form action="#" th:action="@{/saveproduct}" th:object="${product}" method="post" class="upload">
+						<label>Termék neve</label>
+						<input type="text" placeholder="" th:field="*{name}">
+						<label>Leírás</label>
+						<input type="text" placeholder="" th:field="*{description}">
+						<label>Ár</label>
+						<input type="text" placeholder="HUF" th:field="*{price}">
+
+						<input type="submit" class="button" value="Feltöltés">
+					</form>
+				</div>
+				
+				<hr>
+				
+				<div class="products">
+					<h4>Termékek</h4>
+					<div class="sent-orders">
+					
+						<div class="ord">
+							<div class="product">
+								<img src="images/tea1.png" alt="Kép">
+								<p> Tea 1 </p>
+								<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+								<p> 2500Ft </p>		
+							</div>
+							
+							<div class="operations">
+								<a class="button" href="">Szerkesztés</a>
+								<a class="button" href="">Törlés</a>
+								<h6>Statikus adat, tölts fel egy újat, hogy használhasd a funkciókat.</h6>
+							</div>
+						</div>
+					
+						<div th:each="product : ${products}" class="ord">
+							<div class="product">
+								<img src="images/tea1.png" alt="Kép"> <!-- Nem működik -->
+								<p th:text="${product.name}"> Tea 1 </p>
+								<p th:text="${product.description}"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+								<p th:text="${product.price}"> 2500Ft </p>		
+							</div>
+							
+							<div class="operations">
+								<a th:href="@{'/editproduct/' + ${product.id}}" class="button" href="" >Szerkesztés</a> 
+								<a th:href="@{'/delete/' + ${product.id}}" class="button" href="">Törlés</a>
+							</div>
+						</div>
+							
+							
+						</div>
+					</div>
+				</div>
+				
+		</section>
+	</div>
+
+</body>
+</html>

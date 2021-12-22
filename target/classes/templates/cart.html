@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="hu">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sipos Tea</title>
+	<link rel="stylesheet" th:href="@{../css/style.css}" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header>
+			<a href="index.html" class="logo">Sipos Tea</a>
+		
+			<nav>
+				<a href="index.html#aboutSection">Rólunk</a>
+				<a href="index.html#ourTea">Teáink</a>
+				<a href="cart.html">Rendelés</a>
+			</nav>
+			
+			<div class="login">
+				<a href="feltoltesek.html">Admin</a>
+			</div>
+		</header>
+	
+		<section class="container-padding">
+				<div> 
+					<form action="#" th:action="@{/savecustomer}" th:object="${customer}" method="post" class="orders">
+						<label>Név</label>
+						<input type="text" placeholder="" th:field="*{name}" maxlength="40" required >
+						<label>Irányítószám</label>
+						<input type="text" placeholder="" th:field="*{zipCode}" maxlength="40" required >
+						<label>Lakcím</label>
+						<input type="text" placeholder="" th:field="*{address}" maxlength="40" required >
+						<label>Telefon</label>
+						<input type="text" placeholder="+36" th:field="*{phoneNumber}" >
+						<label>Email</label>
+						<input type="email" placeholder="" th:field="*{email}" maxlength="40" required >
+  						<label>Teák nevei (darab)</label>
+						<input type="text" placeholder="Pl: Fekete tea (5), Zöld tea (2)" th:field="*{teaText}" maxlength="40" required>
+		
+						<input type="submit" class="button" value="Megrendelem">
+					</form>
+				</div>
+						
+					</div>
+				</div>
+		</section>
+	</div>
+
+</body>
+</html>

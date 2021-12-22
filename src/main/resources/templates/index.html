@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="hu">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sipos Tea</title>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header>
+			<a href="index.html" class="logo">Sipos Tea</a>
+		
+			<nav>
+				<a href="#aboutSection">Rólunk</a>
+				<a href="#ourTea">Teáink</a>
+				<a href="cart.html">Rendelés</a>
+			</nav>
+			
+			<div class="login">
+				<a href="feltoltesek.html">Admin</a>
+			</div>
+		</header>
+		
+		<main id="aboutSection" class="container-padding container-flex">
+			<div class="img-container">
+				<img src="images/main.jpg" alt="tea">
+			</div>
+			<div class="text-container">
+				<h1>A világ legjobb teái</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis porta erat, sit amet varius sapien. Proin non nunc odio. Phasellus sit amet augue mi. Aliquam in blandit eros, quis faucibus nulla. Praesent fringilla ante purus, vitae egestas justo maximus ut. Cras auctor finibus ex, vel convallis nisi. Phasellus diam lacus, condimentum et placerat blandit, ultrices in nisl. Suspendisse risus diam, tincidunt eu feugiat eu, scelerisque at augue.</p>
+			</div>
+		</main>
+	</div>
+<div class="light-wrapper">	
+	
+	<section id="ourTea" class="about wrapper container-padding">
+		<div class="text-container">
+		
+			<h2>Teáink</h2>
+			
+			<div class="drinks">
+				
+				<div class="drink">
+					<img src="images/tea1.png" alt="tea">
+					<p>Tea</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<p>
+					<p>Ára: 800Ft</p>
+				</div>
+				
+				<div th:each="product : ${products}" class="drink">
+					<img src="images/tea1.png" alt="tea">
+					<p th:text="${product.name}">Tea 2</p>
+					<p th:text="${product.description}">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<p>
+					<p th:text="${product.price}">Ára: 800Ft</p>
+				</div>
+				
+			</div>
+			
+		</div>	
+	</section>
+</div>
+
+	<div class="wrapper"> 
+		<footer class="container-padding">
+			<h2>Köszönjük, hogy betért hozzánk!</h2>
+			<p>Ha kérdése van, keressen bátran minket!</p>
+		</footer>
+	</div>
+</body>
+</html>

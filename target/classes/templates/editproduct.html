@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="hu">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sipos Tea</title>
+	<link rel="stylesheet" th:href="@{../css/style.css}" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header>
+			
+		</header>
+	
+		<section class="container-padding">
+				<div>
+					<form action="#" th:action="@{/saveeditproduct}" th:object="${product}" method="post" class="upload">
+						<label>Termék neve</label>
+						<input type="text" placeholder="" th:field="*{name}">
+						<label>Leírás</label>
+						<input type="text" placeholder="" th:field="*{description}">
+						<label>Ár</label>
+						<input type="text" placeholder="HUF" th:field="*{price}">
+
+						<input type="submit" class="button" value="Mentés">
+					</form>
+				</div>
+							
+		</section>
+	</div>
+
+</body>
+</html>

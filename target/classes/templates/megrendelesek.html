@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="hu">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sipos Tea</title>
+	<link rel="stylesheet" th:href="@{../css/style.css}" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header>
+			<a href="index.html" class="logo">Sipos Tea</a>
+		
+			<nav>
+				<a href="feltoltesek.html">Feltöltések</a>
+				<a href="megrendelesek.html">Megrendelések</a>
+			</nav>
+			
+			<div class="login">
+				<a href="index.html">Kilépés</a>
+			</div>
+		</header>
+	
+		<section class="container-padding">
+				
+				<div class="products">
+					<h4>Megrendelések</h4>
+					<div class="sent-orders">
+					
+						<div class="ord">
+
+							<div  class="costumer">
+								<p> Szabó Alexandra </p>
+								<p> 8888 Albertirsa Petőfi sétány 10. </p>
+								<p> szaboalexandra@gmail.com </p>
+								<p> +3620488814 </p>	
+							</div>
+							
+							<div class="operations">
+									<a class="button" href="">Szerkesztés</a>
+									<a class="button" href="">Törlés</a>
+									<h6>Statikus adat, készíts új megrendelést, hogy használhasd a funkciókat.</h6>
+							</div>
+						</div>
+					
+						<div th:each="customer : ${customers}" class="ord">
+
+							<div  class="costumer">
+								<p th:text="${customer.name}"> Szabó Alexandra </p>
+								<p th:text="${customer.zipCode + ' ' + customer.address}"> 8888 Albertirsa Petőfi sétány 10. </p>
+								<p th:text="${customer.email}"> szaboalexandra@gmail.com </p>
+								<p th:text="${customer.phoneNumber}"> +3620488814 </p>
+								<p th:text="${customer.teaText}"> +3620488814 </p>
+							</div>
+							
+							<div class="operations">
+									<a th:href="@{'/edit/' + ${customer.id}}" class="button" href="" >Szerkesztés</a> 
+									<a th:href="@{'/deletecustomer/' + ${customer.id}}" class="button" href="">Törlés</a>
+							</div>
+						</div>	
+
+					</div>
+				</div>
+		</section>
+	</div>
+
+</body>
+</html>
